@@ -1,0 +1,6 @@
+@TradeHike.WebApi_HostAddress = http://localhost:5104
+
+GET {{TradeHike.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
