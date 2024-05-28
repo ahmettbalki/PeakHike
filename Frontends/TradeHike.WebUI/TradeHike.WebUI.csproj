@@ -6,4 +6,34 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\master\.DS_Store" />
+    <None Include="wwwroot\master\css\.DS_Store" />
+    <None Include="wwwroot\master\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\master\css\css\.DS_Store" />
+    <None Include="wwwroot\master\fonts\.DS_Store" />
+    <None Include="wwwroot\master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\master\fonts\flaticon\font\.DS_Store" />
+    <None Include="wwwroot\master\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\master\images\.DS_Store" />
+    <None Include="wwwroot\master\js\.DS_Store" />
+    <None Include="wwwroot\master\scss\.DS_Store" />
+    <None Include="wwwroot\master\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\TradeHike.Persistence\TradeHike.Persistence.csproj" />
+    <ProjectReference Include="..\TradeHike.Dto\TradeHike.Dto.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
 </Project>
