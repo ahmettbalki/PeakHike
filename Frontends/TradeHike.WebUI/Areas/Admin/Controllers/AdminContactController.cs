@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using TradeHike.Dto.ContactDtos;
 
@@ -6,6 +7,8 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminContact")]
+    [Authorize(Roles = "Admin")]
+
     public class AdminContactController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

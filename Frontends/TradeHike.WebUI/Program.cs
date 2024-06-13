@@ -7,24 +7,20 @@ using TradeHike.Persistence.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews(config =>
-{
-    var policy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-    config.Filters.Add(new AuthorizeFilter(policy));
-});
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
 
 builder.Services.AddDbContext<MyContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.LoginPath = "/Login/Index";
         options.AccessDeniedPath = "/Login/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Oturum süresi (30 dakika)
+        options.SlidingExpiration = true;
     });
 
 var app = builder.Build();
@@ -40,10 +36,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthorization();
+
 app.UseAuthentication();
 
-
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

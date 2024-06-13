@@ -31,10 +31,6 @@
                                         <th>Kuruluş Yılı</th>
                                         <th>Finansman</th>
                                         <th>Seçili Yatırımcılar</th>
-                                        <th>Sil</th>
-                                        <th>Güncelle</th>
-                                        <th>Detaylar</th>
-                                        <th>Sitede Gör</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,10 +49,6 @@
                                             <td>@item.YearFounded</td>
                                             <td>@item.Funding</td>
                                             <td>@item.Investors</td>
-                                            <td><a href="/AdminCompany/RemoveCompany/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-                                            <td><a href="/AdminCompany/UpdateCompany/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/CompanyList/CompanyDetail/@item.Id" class="btn btn-outline-dark">Detaylar</a></td>
-                                            <td><a href="/CompanyList/CompanyDetail/@item.Id" class="btn btn-outline-warning">Sitede Gör</a></td>
                                         </tr>
                                     }
                                 </tbody>

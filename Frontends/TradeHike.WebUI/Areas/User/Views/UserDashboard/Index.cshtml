@@ -1,0 +1,48 @@
+﻿@model TradeHike.Domain.Entities.AppUser
+
+@{
+    ViewData["Title"] = "Kullanıcı Bilgileri";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<style>
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container">
+    <h2>Kullanıcı Bilgileri</h2>
+
+    <table class="table table-bordered table-striped text-center">
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <td>@Model.Username</td>
+        </tr>
+        <tr>
+            <th>Ad</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>Soyad</th>
+            <td>@Model.Surname</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <th>Şifre</th>
+            <td>@Model.Password</td> <!-- Bu alan hassas bilgi içerir, şifre gösterimi uygun olmayabilir -->
+        </tr>
+        <!-- Diğer alanlar buraya eklenebilir -->
+    </table>
+
+    <a href="~/User/UserDashboard/UpdateDashboard/@Model.Id" class="btn btn-primary">Bilgileri Güncelle</a>
+</div>
+
+<style>
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>

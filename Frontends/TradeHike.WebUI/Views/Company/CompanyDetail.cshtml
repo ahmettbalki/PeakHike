@@ -1,0 +1,43 @@
+﻿@model ResultCompanyDto
+@{
+    ViewData["Title"] = "CompanyDetail";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+<div class="container">
+    <h1>@Model.Name</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Değerleme</th>
+            <td>@Model.Valuation</td>
+        </tr>
+        <tr>
+            <th>Katılım Tarihi</th>
+            <td>@Model.DateJoined.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Sektör</th>
+            <td>@Model.Industry</td>
+        </tr>
+        <tr>
+            <th>Şehir</th>
+            <td>@Model.City</td>
+        </tr>
+        <tr>
+            <th>Ülke</th>
+            <td>@Model.Country</td>
+        </tr>
+        <tr>
+            <th>Kıta</th>
+            <td>@Model.Continent</td>
+        </tr>
+        <tr>
+            <th>Kuruluş Yılı</th>
+            <td>@Model.YearFounded</td>
+        </tr>
+        <tr>
+            <th>Finansman</th>
+            <td>@Model.Funding</td>
+        </tr>
+    </table>
+    <a href="@Url.Action("Index", "Company")" class="btn btn-primary">Geri Dön</a>
+</div>

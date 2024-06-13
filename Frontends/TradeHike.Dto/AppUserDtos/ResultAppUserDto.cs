@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradeHike.Domain.Entities
+namespace TradeHike.Dto.AppUserDtos
 {
-    public class AppUser
+    public class ResultAppUserDto
     {
         public int Id { get; set; }
 
@@ -27,8 +27,6 @@ namespace TradeHike.Domain.Entities
         [Required(ErrorMessage = "E-posta adresi gereklidir.")]
         [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
         public string Email { get; set; }
-
         public int AppRoleId { get; set; }
-        public AppRole AppRole { get; set; }
     }
 }

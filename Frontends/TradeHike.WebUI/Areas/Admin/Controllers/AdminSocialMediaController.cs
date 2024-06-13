@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using TradeHike.Dto.SocialMediaDtos;
@@ -7,6 +8,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminSocialMedia")]
+    [Authorize(Roles = "Admin")]
     public class AdminSocialMediaController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

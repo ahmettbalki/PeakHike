@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using TradeHike.Dto.CompanyDtos;
@@ -7,6 +8,8 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminCompany")]
+    [Authorize(Roles = "Admin")]
+
     public class AdminCompanyController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -20,7 +23,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7042/api/Companies");
+            var responseMessage = await client.GetAsync("https://localhost:7151/api/Companies");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -37,7 +40,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createCompanyDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7042/api/Companies", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:7151/api/Companies", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -49,7 +52,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> RemoveCompany(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7042/api/Companies/{id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7151/api/Companies/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -64,7 +67,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateCompanyDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7042/api/Companies/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:7151/api/Companies/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

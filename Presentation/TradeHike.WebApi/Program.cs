@@ -3,16 +3,20 @@ using TradeHike.Application.Interfaces;
 using TradeHike.Application.Services;
 using TradeHike.Persistence.Context;
 using TradeHike.Persistence.Repositories;
+using TradeHike.Persistence.Repositories.AppUserRepositories;
 using TradeHike.Persistence.Repositories.BlogRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddScoped<MyContext>();
+
 // Add services to the container.
 builder.Services.AddDbContext<MyContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(IAppUserRepository), typeof(AppUserRepository));
 
 builder.Services.AddApplicationService(builder.Configuration);
 

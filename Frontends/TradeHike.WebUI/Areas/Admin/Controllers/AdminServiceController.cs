@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using TradeHike.Dto.ServiceDtos;
@@ -7,6 +8,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminService")]
+    [Authorize(Roles = "Admin")]
     public class AdminServiceController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

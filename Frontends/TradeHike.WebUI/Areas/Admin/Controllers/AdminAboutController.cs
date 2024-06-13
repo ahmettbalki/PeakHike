@@ -8,6 +8,7 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminAbout")]
+    [Authorize(Roles = "Admin")]
     public class AdminAboutController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

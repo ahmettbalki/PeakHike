@@ -1,0 +1,30 @@
+﻿@model TradeHike.Domain.Entities.AppUser
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<h2>Kullanıcı Bilgilerini Güncelle</h2>
+
+<h2>Kullanıcı Bilgilerini Güncelle</h2>
+
+<form asp-action="UpdateDashboard" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Username">Kullanıcı Adı</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Ad</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname">Soyad</label>
+        <input asp-for="Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

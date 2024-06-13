@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using TradeHike.Dto.BannerDtos;
@@ -7,6 +8,8 @@ namespace TradeHike.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminBanner")]
+    [Authorize(Roles = "Admin")]
+
     public class AdminBannerController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
