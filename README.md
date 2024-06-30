@@ -21,7 +21,7 @@ The application follows the Onion Architecture, which is a layered architecture 
 1. **Domain Layer**: Contains the domain entities, interfaces, and domain services.
 2. **Application Layer**: Implements application logic and services using the Mediator pattern. This layer is responsible for handling commands and queries.
 3. **Infrastructure Layer**: Contains implementations for data access, external services, and repositories.
-4. **Presentation Layer**: The ASP.NET MVC web application that interacts with users and sends requests to the application layer.
+4. **Presentation Layer**: The ASP.NET MVC web api that interacts with users and sends requests to the application layer.
 
 ### Features
 
